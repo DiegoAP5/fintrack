@@ -19,12 +19,16 @@ public class User {
 
     private String lastname;
 
+    @Column(unique = true)
     private String email;
 
     private String password;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Saving>savings;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Payment>payments;
 
     @ManyToMany(mappedBy = "users")
     private List<SharedSaving>sharedSavings;
