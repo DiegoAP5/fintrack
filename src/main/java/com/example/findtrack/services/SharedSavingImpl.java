@@ -39,7 +39,7 @@ public class SharedSavingImpl implements ISharedSavingService {
 
     @Override
     public BaseResponse getSavingByUserId(Long id) {
-        List<SharedSavingResponse> response = repository.getSharedSavingByUserId(id).stream().map(this::from).collect(Collectors.toList());
+        List<SavingsProjection> response = repository.getSharedSavingByUserId(id).stream().collect(Collectors.toList());
         return BaseResponse.builder()
                 .data(response)
                 .message("Shared saving created")

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ISharedSavingRepository extends JpaRepository<SharedSaving, Long> {
 
-    @Query(value = "SELECT s.* FROM SharedSavings s JOIN Shared d ON s.user_id = d.user_id "+
-                    "WHERE d.user_id = :userId",nativeQuery = true)
+    @Query(value = "SELECT s.* FROM SharedSavings s JOIN Shared d ON s.id = d.shared_id "+
+                    "WHERE d.user_id = :id",nativeQuery = true)
     List<SavingsProjection> getSharedSavingByUserId(Long id);
 }

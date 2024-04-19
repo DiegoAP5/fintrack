@@ -16,7 +16,7 @@ public class SharedSavingController {
 
     @Autowired private ISharedSavingService service;
 
-    @GetMapping("/user({id}")
+    @GetMapping("/user/{id}")
     public ResponseEntity<BaseResponse> getSavinById(@PathVariable Long id){
         BaseResponse baseResponse = service.getSavingByUserId(id);
         return new ResponseEntity<>(baseResponse, baseResponse.getHttpStatus());
