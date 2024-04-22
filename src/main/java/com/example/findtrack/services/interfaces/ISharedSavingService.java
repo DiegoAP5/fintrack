@@ -12,6 +12,8 @@ public interface ISharedSavingService {
 
     BaseResponse getSavingByUserId(Long id);
 
+    BaseResponse getSavingById(Long id);
+
     BaseResponse create(CreateSharedSavingRequest request);
 
     BaseResponse update(Long id, UpdateSharedSavingRequest request);

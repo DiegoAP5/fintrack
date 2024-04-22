@@ -49,6 +49,17 @@ public class SharedSavingImpl implements ISharedSavingService {
     }
 
     @Override
+    public BaseResponse getSavingById(Long id){
+        SharedSavingResponse response = from(repository.getSharedSavingById(id));
+        return BaseResponse.builder()
+                .data(response)
+                .message("Shared saving by id")
+                .success(Boolean.TRUE)
+                .httpStatus(HttpStatus.OK)
+                .build();
+    }
+
+    @Override
     public BaseResponse create(CreateSharedSavingRequest request) {
         SharedSaving sharedSaving = new SharedSaving();
         sharedSaving = create(request, sharedSaving);

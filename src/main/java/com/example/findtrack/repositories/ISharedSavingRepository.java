@@ -14,4 +14,8 @@ public interface ISharedSavingRepository extends JpaRepository<SharedSaving, Lon
     @Query(value = "SELECT s.* FROM sharedsavings s JOIN shared d ON s.id = d.shared_id "+
                     "WHERE d.user_id = :id",nativeQuery = true)
     List<SavingsProjection> getSharedSavingByUserId(Long id);
+
+    @Query(value = "SELECT s.* FROM sharedsavings s JOIN shared d ON s.id = d.shared_id "+
+            "WHERE d.shared_id = :id",nativeQuery = true)
+    SharedSaving getSharedSavingById(Long id);
 }
