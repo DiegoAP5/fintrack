@@ -18,6 +18,6 @@ public interface ISavingRepository extends JpaRepository<Saving, Long> {
 
     @Query(value = "SELECT savings.*, users.id AS userId FROM savings "+
             "INNER JOIN users ON savings.user_id = users.id "+
-            "WHERE id = :id",nativeQuery = true)
+            "WHERE savings.id = :id",nativeQuery = true)
     Saving getSavingsById(Long id);
 }
